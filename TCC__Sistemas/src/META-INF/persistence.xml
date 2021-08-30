@@ -6,7 +6,7 @@
 	<persistence-unit name="PUjpa"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>entity.Cliente</class>
+		<class>entity.Produto</class>
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL5InnoDBDialect" />
