@@ -58,7 +58,7 @@ public class ProdutoDao {
 	
 	public static void main(String[] args) {
 		try {
-			Produto c1 = new Produto(3l,null,null);
+			Produto c1 = new Produto(3l,null,null, null, null);
 
 			
 			ProdutoDao dao = new ProdutoDao();

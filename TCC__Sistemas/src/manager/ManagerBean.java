@@ -104,7 +104,7 @@ public class ManagerBean implements Serializable {
 		try {
 			new ProdutoDao().delete(this.produto);
 			this.produto = new Produto();
-			fc.addMessage(null, new FacesMessage("Registro Excluidos"));
+			fc.addMessage(null, new FacesMessage("Dados Excluídos"));
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			fc.addMessage(null, new FacesMessage("Error" + ex.getMessage()));

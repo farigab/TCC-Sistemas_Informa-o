@@ -22,12 +22,20 @@
 	<p:panel header="Gravação">
 		<h:form id="form2">
 			<p:panelGrid columns="2">
-				<h:outputText value="Nome do Produto"/>
-				<p:inputText value="#{mb.produto.nome}" required="true" requiredMessage="Necessita ser preenchido"/>
-
+			
+				<h:outputText value="Loja"/>
+				<p:inputText value="#{mb.produto.nomeCliente}" required="true" requiredMessage="Nome do cliente necessita ser preenchido"/>
+			
+				<h:outputText value="Produto"/>
+				<p:inputText value="#{mb.produto.nome}" required="true" requiredMessage="Nome do produto necessita ser preenchido"/>
+				
 				<h:outputText value="Data de validade"/>
 				<p:calendar pattern="dd/MM/yyyy" 
-                value="#{mb.produto.dataValidade}" required="true" requiredMessage="Necessita ser preenchido"/>
+                value="#{mb.produto.dataValidade}" required="true" requiredMessage="Data de validade necessita ser preenchida"/>
+                
+                <p:outputLabel for="@next" value="Quantidade"/>
+                <p:spinner id="vertical" value="#{mb.produto.quantidade}" buttons="vertical" upButtonStyleClass="ui-button-secondary" 
+                downButtonStyleClass="ui-button-secondary"/>
 
 				<p:commandButton value="Gravar" action="#{mb.cadastrar}" ajax="true"
 					update=":form2,:form3"/>
@@ -42,16 +50,22 @@
 		<h:form id="form3">
 			<p:dataTable value="#{mb.produtos}" var="linha" rows="11"
 				paginator="true">
-				<p:column headerText="Id">
-					<h:outputText value="#{linha.id}"></h:outputText>
+				
+				<p:column headerText="Loja">
+					<h:outputText value="#{linha.nomeCliente}"></h:outputText>
 				</p:column>
-				<p:column headerText="Nome do Produto">
+				
+				<p:column headerText="Produto">
 					<h:outputText value="#{linha.nome}"></h:outputText>
 				</p:column>
 				<p:column headerText="Data de Validade">
 					<h:outputText value="#{linha.dataValidade}">
 					 <f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
 					</h:outputText>
+				</p:column>
+								
+				<p:column headerText="Quantidade">
+					<h:outputText value="#{linha.quantidade}"></h:outputText>
 				</p:column>
 
 
@@ -77,12 +91,19 @@
 			<h:form id="form4">
 				<h:inputHidden value="#{mb.produto.id}" />
 				<p:panelGrid columns="2">
+				
+					<h:outputText value="Loja" />
+					<p:inputText value="#{mb.produto.nomeCliente}" />
 
-					<h:outputText value="Nome" />
+					<h:outputText value="Produto" />
 					<p:inputText value="#{mb.produto.nome}" />
 				
 					<h:outputText value="Data de validade" />
 					<p:calendar pattern="dd/MM/yyyy" value="#{mb.produto.dataValidade}"/>
+										
+					<p:outputLabel for="@next" value="Quantidade"/>
+              		<p:spinner id="vertical" value="#{mb.produto.quantidade}" buttons="vertical" upButtonStyleClass="ui-button-secondary" 
+                	downButtonStyleClass="ui-button-secondary"/>
 
 				</p:panelGrid>
 

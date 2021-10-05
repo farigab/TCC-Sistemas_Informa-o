@@ -25,6 +25,11 @@ public class Produto implements Serializable {
 	private String nome;
 	@Column(length=80)
 	private Date dataValidade;
+	@Column(length=50)
+	@Size(min=2, message="Minimo de letras para nome do cliente")
+	private String nomeCliente;
+	@Column
+	private Integer quantidade;
 	
 
 	@Override
@@ -36,12 +41,15 @@ public class Produto implements Serializable {
 		super();
 	}
 	
-	public Produto(Long id, String nome, Date dataValidade) {
+	public Produto(Long id, String nome, Date dataValidade, String nomeCliente, Integer quantidade) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.dataValidade = dataValidade;
+		this.nomeCliente = nomeCliente;
+		this.quantidade = quantidade;
 	}
+
 	public Long getId() {
 		return id;
 	}
@@ -60,4 +68,21 @@ public class Produto implements Serializable {
 	public void setdataValidade(Date dataValidade) {
 		this.dataValidade = dataValidade;
 	}
+
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+	
 }
